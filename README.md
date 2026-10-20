@@ -190,6 +190,16 @@ Each cycle tightens your taxonomy, improves your evaluators, and reduces the tim
 
 ---
 
+## Document-to-Audio Showcase
+
+**One claim. Six synthetic cases. A traceable launch decision.**
+
+Follow a source-grounded audio briefing from [product claim and DECODE mapping](reports/document-to-audio-showcase/README.md), through a [T-19 eval stub](reports/document-to-audio-showcase/eval-stub.md), to [metric definitions](reports/document-to-audio-showcase/metrics.md), [proposed launch gates](reports/document-to-audio-showcase/launch-gates.md), and a [T-14 decision memo](reports/document-to-audio-showcase/decision-memo.md).
+
+The [fixtures](reports/document-to-audio-showcase/cases.json) target numeric trends, negation, spoken units, uncertainty, and untrusted instructions alongside a clean baseline. The [evidence ledger](reports/document-to-audio-showcase/results.json) starts empty: **all product measurements are proposed, not measured; the current recommendation is Hold.** This is an auditable evaluation design, with no generated audio or platform implementation yet. It makes no claim about Huxe, NotebookLM, or production readiness.
+
+---
+
 ## Evaluation Reports
 
 Applying this framework to real multimodal AI products in the wild.
