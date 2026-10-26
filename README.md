@@ -190,6 +190,18 @@ Each cycle tightens your taxonomy, improves your evaluators, and reduces the tim
 
 ---
 
+## Document-to-Audio Showcase
+
+**One claim. Six synthetic cases. A traceable launch decision.**
+
+Follow a source-grounded audio briefing from [product claim and DECODE mapping](reports/document-to-audio-showcase/README.md), through a [T-19 eval stub](reports/document-to-audio-showcase/eval-stub.md), to [metric definitions](reports/document-to-audio-showcase/metrics.md), [proposed launch gates](reports/document-to-audio-showcase/launch-gates.md), and a [T-14 decision memo](reports/document-to-audio-showcase/decision-memo.md).
+
+The [six fictional fixtures](reports/document-to-audio-showcase/cases.json) cover a clean baseline, numeric trends, negation, spoken units, uncertainty, and untrusted instructions. An offline Python + FFmpeg baseline now produces actual audio: inspect the [DTA-04 recorded run and hashes](reports/document-to-audio-showcase/evidence/DTA-04-baseline-v1/run.json), [listen to the WAV](reports/document-to-audio-showcase/evidence/DTA-04-baseline-v1/audio.wav), and [reproduce it](reports/document-to-audio-showcase/README.md#reproduce-the-vertical-slice). Seven regression tests protect evidence handling and demonstrate a detected script sentinel failure.
+
+**Measured:** artifact generation and WAV container properties. **Proposed/unrun:** semantic quality, listening scores and human approvals; M1–M6 remain null in the [quality ledger](reports/document-to-audio-showcase/results.json). **Decision: Hold.** This is an auditable smoke example, with no production-readiness claim. The showcase extends Harsha Srivatsa’s framework and templates in this fork.
+
+---
+
 ## Evaluation Reports
 
 Applying this framework to real multimodal AI products in the wild.

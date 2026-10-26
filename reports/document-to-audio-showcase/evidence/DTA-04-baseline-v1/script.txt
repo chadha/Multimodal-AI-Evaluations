@@ -1,0 +1,1 @@
+The fictional Cedar batch took 4.5 hours to process 18 files. The time limit was 5 hours. Hours are the unit for both durations.

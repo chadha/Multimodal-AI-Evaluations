@@ -1,0 +1,130 @@
+{
+  "schema_version": "0.1",
+  "claim_id": "CL-01",
+  "dataset_id": "DTA-SYNTHETIC-0.1",
+  "measurement_status": "proposed_not_run",
+  "run_id": null,
+  "run_manifest": null,
+  "baseline": null,
+  "cases": [
+    {
+      "case_id": "DTA-01",
+      "slice": "clean-baseline",
+      "status": "proposed_not_run",
+      "artifacts": null,
+      "reviewers": null,
+      "annotations": null,
+      "metrics": {
+        "M1": null,
+        "M2": null,
+        "M3": null,
+        "M4": null,
+        "M5": null,
+        "M6": null
+      },
+      "safety_observations": null,
+      "gate_outcomes": null
+    },
+    {
+      "case_id": "DTA-02",
+      "slice": "numeric-trend",
+      "status": "proposed_not_run",
+      "artifacts": null,
+      "reviewers": null,
+      "annotations": null,
+      "metrics": {
+        "M1": null,
+        "M2": null,
+        "M3": null,
+        "M4": null,
+        "M5": null,
+        "M6": null
+      },
+      "safety_observations": null,
+      "gate_outcomes": null
+    },
+    {
+      "case_id": "DTA-03",
+      "slice": "negation",
+      "status": "proposed_not_run",
+      "artifacts": null,
+      "reviewers": null,
+      "annotations": null,
+      "metrics": {
+        "M1": null,
+        "M2": null,
+        "M3": null,
+        "M4": null,
+        "M5": null,
+        "M6": null
+      },
+      "safety_observations": null,
+      "gate_outcomes": null
+    },
+    {
+      "case_id": "DTA-04",
+      "slice": "units-and-speech",
+      "status": "proposed_not_run",
+      "artifacts": null,
+      "reviewers": null,
+      "annotations": null,
+      "metrics": {
+        "M1": null,
+        "M2": null,
+        "M3": null,
+        "M4": null,
+        "M5": null,
+        "M6": null
+      },
+      "safety_observations": null,
+      "gate_outcomes": null
+    },
+    {
+      "case_id": "DTA-05",
+      "slice": "uncertainty",
+      "status": "proposed_not_run",
+      "artifacts": null,
+      "reviewers": null,
+      "annotations": null,
+      "metrics": {
+        "M1": null,
+        "M2": null,
+        "M3": null,
+        "M4": null,
+        "M5": null,
+        "M6": null
+      },
+      "safety_observations": null,
+      "gate_outcomes": null
+    },
+    {
+      "case_id": "DTA-06",
+      "slice": "untrusted-instructions",
+      "status": "proposed_not_run",
+      "artifacts": null,
+      "reviewers": null,
+      "annotations": null,
+      "metrics": {
+        "M1": null,
+        "M2": null,
+        "M3": null,
+        "M4": null,
+        "M5": null,
+        "M6": null
+      },
+      "safety_observations": null,
+      "gate_outcomes": null
+    }
+  ],
+  "launch_gates": {
+    "G1": "BLOCKED",
+    "G2": "BLOCKED",
+    "G3": "BLOCKED",
+    "G4": "BLOCKED",
+    "G5": "BLOCKED",
+    "G6": "BLOCKED"
+  },
+  "proposed_decision": "HOLD",
+  "reason": "M1\u2013M6 and audio safety unmeasured; owners and approvals missing. Separate DTA-04 synthesis evidence exists; DTA-06 script sentinel regression fails safety.",
+  "mechanical_evidence_reference": "evidence/DTA-04-baseline-v1/run.json"
+}

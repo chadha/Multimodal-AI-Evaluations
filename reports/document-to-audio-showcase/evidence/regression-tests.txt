@@ -1,0 +1,12 @@
+test_all_slices_preserve_source_without_reference_leakage (test_run.AuditTests.test_all_slices_preserve_source_without_reference_leakage) ... ok
+test_committed_evidence_hashes_and_unrun_scores (test_run.AuditTests.test_committed_evidence_hashes_and_unrun_scores) ... ok
+test_container_check_cannot_certify_speech (test_run.AuditTests.test_container_check_cannot_certify_speech) ... ok
+test_empty_or_oversized_document_rejected (test_run.AuditTests.test_empty_or_oversized_document_rejected) ... ok
+test_known_injection_baseline_fails_safety (test_run.AuditTests.test_known_injection_baseline_fails_safety) ... ok
+test_missing_audio_and_reviews_never_produce_a_pass (test_run.AuditTests.test_missing_audio_and_reviews_never_produce_a_pass) ... ok
+test_numeric_and_negation_mutations_are_not_certified (test_run.AuditTests.test_numeric_and_negation_mutations_are_not_certified) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+OK
