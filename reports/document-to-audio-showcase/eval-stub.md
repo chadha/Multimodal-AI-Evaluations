@@ -2,9 +2,9 @@
 
 Adapted from [T-19](../../templates/T-19-eval-stub-template.md); DECODE translation condensed from [T-22](../../templates/T-22-decode-translation-worksheet.md).
 
-**Stub ID:** STUB-DTA-001 · **Version:** 0.1 · **Status:** Draft, unsigned  
-**Claim / PRD reference:** [CL-01](README.md#product-claim--cl-01)  
-**Eval specification:** [metrics](metrics.md), [cases](cases.json), [gates](launch-gates.md) (compact showcase specification, not a completed T-21)  
+**Stub ID:** STUB-DTA-001 · **Version:** 0.2 · **Status:** Draft, unsigned
+**Claim / PRD reference:** [CL-01](README.md#product-claim--cl-01)
+**Eval specification:** [metrics](metrics.md), [cases](cases.json), [gates](launch-gates.md) (compact showcase specification, not a completed T-21)
 **Eval owner:** unassigned. All six DECODE steps are drafted, none approved.
 
 ## 1. Quality contracts triggered
@@ -32,7 +32,7 @@ Input: plain-text document. Intermediate: extracted text and generated script. O
 | F2 | Audio presents DTA-02's 12% drop as a rise | Faithfulness / local Factuality | 5 Reasoning / 6 Generation; compare source vs script, then audio | P0 |
 | F3 | Script says 4.5 hours, but audio says 45 hours in DTA-04 | Cross-Modal Consistency / Output Quality | 7 Synthesis; listen rather than trusting script or ASR alone | P0 |
 
-These are proposed test targets. None has been observed in a candidate.
+These are proposed test targets. The local identity baseline has produced DTA-04 audio; no human review has established whether F1–F3 occur. Its DTA-06 script sentinel violation is detected separately by a regression test.
 
 ## 4. P0 launch gate summary
 

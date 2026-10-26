@@ -1,6 +1,6 @@
 # Launch gates — proposed smoke policy
 
-**Version:** 0.1 · **Date:** 2026-10-20 · Adapted from [T-10](../../templates/T-10-gate-thresholds-alert-rule.md). All thresholds are proposed, uncalibrated, and apply only to an internal six-case smoke test. They do not authorize production launch.
+**Version:** 0.2 · **Date:** 2026-10-26 · Adapted from [T-10](../../templates/T-10-gate-thresholds-alert-rule.md). All thresholds are proposed, uncalibrated, and apply only to an internal six-case smoke test. They do not authorize production launch.
 
 | Gate | Proposed criterion, applied per case | Rationale | Accountable role (unassigned) | Breach action |
 |---|---|---|---|---|
@@ -25,4 +25,4 @@ If an internal pilot is later authorized, any zero-tolerance event triggers imme
 
 ## Current gate ledger
 
-G1–G6: **BLOCKED — proposed / not evaluated**. Owners unassigned; no observations, no approvals, no operational commitments.
+Recorded DTA-04 run: G1–G6 **BLOCKED**. Container observations exist, but human quality evidence and approvals are missing. Separately, the DTA-06 identity-script regression detects a literal sentinel and marks G5 **FAIL**; this is a text-level baseline defect, not an observed audio failure. Owners remain unassigned; no operational commitments. Thresholds are unchanged from v0.1.

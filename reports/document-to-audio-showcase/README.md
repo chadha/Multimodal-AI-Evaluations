@@ -1,8 +1,8 @@
 # Document-to-audio: one auditable claim
 
-**Version:** 0.1 · **Date:** 2026-10-20 · **Evidence status:** proposed; product evaluation not run.
+**Version:** 0.2 · **Date:** 2026-10-26 · **Evidence status:** one local audio generation run; semantic and listening evaluation proposed, not run.
 
-A small, synthetic example of DECODE from product intent to a launch decision. It contains authored source documents, reference propositions, a review protocol, and an empty evidence ledger. No product, parser, model, TTS service, or listener panel has been evaluated. Reference text is test design, never generated output.
+A small, synthetic example of DECODE from product intent to a launch decision. It contains authored source documents, reference propositions, an executable offline baseline, a recorded DTA-04 audio generation run, and a review protocol. The baseline reads the document aloud unchanged using local FFmpeg/libflite; no LLM or API key is needed. It does not read reference propositions. Human quality scores remain null. Reference text is test design, never candidate output.
 
 ## Product claim — CL-01
 
@@ -20,7 +20,8 @@ This is one binary claim per output: any unsupported spoken proposition fails CL
 | [Six source cases](cases.json) | Which source propositions and edge conditions are covered? |
 | [Metrics and run protocol](metrics.md) | How will each judgment be made and reproduced? |
 | [Launch gates](launch-gates.md) | What blocks a release, including missing evidence? |
-| [Evidence ledger](results.json) | Which measurements actually exist? Currently none. |
+| [Recorded run](evidence/DTA-04-baseline-v1/run.json) and [audio](evidence/DTA-04-baseline-v1/audio.wav) | What was actually generated, with which configuration and hashes? |
+| [Evidence ledger](results.json) | Which human quality measurements exist? None yet; all remain proposed. |
 | [T-14 decision memo](decision-memo.md) | What decision does the available evidence support? |
 
 Example audit path: CL-01 → DTA-03 (negation) → reference “automatic renewal is disabled” → compare extracted text, script, and timestamped listening transcript → M2/M3 → G2/G3 → Hold until evidence exists. Saying “renewal is automatic” would fail; this is a hypothetical failure, not an observation.
@@ -38,9 +39,26 @@ Example audit path: CL-01 → DTA-03 (negation) → reference “automatic renew
 
 ## Pipeline boundary
 
-Use the root README's nine-stage naming. Stage 1 Ingestion loads text; Stage 2 Normalization preserves source IDs and propositions; Stage 3 Indexing and Stage 4 Retrieval are bypassed (one full document); Stage 5 Reasoning selects propositions; Stage 6 Generation writes the script; Stage 7 Synthesis renders speech; Stage 8 Guardrails checks output; Stage 9 Delivery exposes playable audio and its audit record. This is a proposed logical path, not an implemented platform.
+Use the root README's nine-stage naming. Stage 1 Ingestion loads text; Stage 2 Normalization preserves source IDs and propositions; Stage 3 Indexing and Stage 4 Retrieval are bypassed (one full document); Stage 5 Reasoning selects propositions; Stage 6 Generation writes the script; Stage 7 Synthesis renders speech; Stage 8 Guardrails checks output; Stage 9 Delivery exposes playable audio and its audit record. The runner implements a minimal source read → identity script → local speech → artifact logging path. Stages 3–4 are bypassed; stage 5 selects the full document. Stage 8 only checks containers and literal script sentinels, so it cannot approve delivery. Stage 9 writes local artifacts for review; no product delivery platform is implemented.
 
-## Run the smallest real evaluation
+## Reproduce the vertical slice
+
+Requires Python 3.10+ and FFmpeg with the `flite` filter and `slt` voice. Python uses only its standard library. Check availability with `ffmpeg -filters`; FFmpeg builds differ.
+
+From the repository root:
+
+```bash
+python -m unittest discover -s reports/document-to-audio-showcase -p 'test_*.py' -v
+python reports/document-to-audio-showcase/run.py --case DTA-04 --out /tmp/dta-review-01
+```
+
+Use a new output directory for each attempt; overwrites are rejected. A successful command means artifact generation succeeded, never that launch gates passed. On failure, retain the partial directory and error; do not omit failed attempts from an evaluation. No source text is executed as code or sent to an external provider.
+
+The recorded [DTA-04 run](evidence/DTA-04-baseline-v1/run.json) includes the [source](evidence/DTA-04-baseline-v1/source.txt), [extraction](evidence/DTA-04-baseline-v1/extracted.txt), [script](evidence/DTA-04-baseline-v1/script.txt), and [generated WAV](evidence/DTA-04-baseline-v1/audio.wav). Its manifest records the runner/dataset/artifact SHA-256 hashes, base revision, engine configuration, environment and time. WAV structure, duration and nonzero PCM are actual observations, **not** evidence of intelligibility, pronunciation or entailment. The linked Flite voice binary is not pinned; byte-identical regeneration on another machine is not promised.
+
+Seven regression tests cover six fixture slices, missing evidence, altered negation/decimals, an exact sentinel breach, unsupported input, a silent WAV, and the recorded artifact hashes. These are engineering checks, not seven product evaluations. The identity baseline deliberately echoes DTA-06's malicious attachment: its literal sentinel makes G5 FAIL in that regression test. Other gates stay BLOCKED; a clean sentinel scan cannot produce a safety PASS. No DTA-06 audio run is claimed.
+
+## Complete the human evaluation
 
 1. Freeze this package's commit SHA and all configuration listed in metrics.md. Assign actual reviewers and approve gates before execution.
 2. Process every source_text in cases.json once through the candidate. Save extracted text, script, audio, timing, and configuration; do not substitute reference propositions for candidate output.
@@ -52,4 +70,4 @@ Use the root README's nine-stage naming. Stage 1 Ingestion loads text; Stage 2 N
 
 ## Attribution
 
-Adapted from Harsha Srivatsa's existing [T-19](../../templates/T-19-eval-stub-template.md), [T-22](../../templates/T-22-decode-translation-worksheet.md), [T-10](../../templates/T-10-gate-thresholds-alert-rule.md), and [T-14](../../templates/T-14-decision-memo.md). Original templates remain unchanged. Thresholds here are proposed local test criteria, not calibrated production recommendations.
+Framework and original templates by Harsha Srivatsa; this fork adds the showcase implementation. Adapted from the existing [T-19](../../templates/T-19-eval-stub-template.md), [T-22](../../templates/T-22-decode-translation-worksheet.md), [T-10](../../templates/T-10-gate-thresholds-alert-rule.md), and [T-14](../../templates/T-14-decision-memo.md). Original templates remain unchanged. Thresholds here are proposed local test criteria, not calibrated production recommendations.

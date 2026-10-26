@@ -125,5 +125,6 @@
     "G6": "BLOCKED"
   },
   "proposed_decision": "HOLD",
-  "reason": "No candidate outputs, audio, measurements, assigned reviewers or approvals exist."
+  "reason": "M1\u2013M6 and audio safety unmeasured; owners and approvals missing. Separate DTA-04 synthesis evidence exists; DTA-06 script sentinel regression fails safety.",
+  "mechanical_evidence_reference": "evidence/DTA-04-baseline-v1/run.json"
 }

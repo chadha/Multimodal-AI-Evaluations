@@ -1,6 +1,6 @@
 # Metrics and evidence protocol
 
-**Version:** 0.1 · **Status:** proposed; no measurements run. References are the source_text and required_propositions in [cases.json](cases.json). Every rate is per case; report raw numerator/denominator alongside it. A pooled mean cannot override a failing slice.
+**Version:** 0.2 · **Status:** M1–M6 proposed; no human quality measurements run. One local synthesis/container run is recorded separately in [run.json](evidence/DTA-04-baseline-v1/run.json). References are the source_text and required_propositions in [cases.json](cases.json). Every rate is per case; report raw numerator/denominator alongside it. A pooled mean cannot override a failing slice.
 
 ## Scoring rules
 
@@ -19,7 +19,7 @@ For M2 split “50 in April and 44 in May” into two propositions; retain quali
 
 ## Review and calibration
 
-Use two independent English-proficient reviewers on every case; retain each initial annotation, source span, audio timestamp, label and rationale, then a separate adjudicated label. Resolve any disagreement with a recorded adjudicator; unresolved disagreement blocks. Names and calibration status are currently unassigned/unrun. Before scoring, review the illustrative failure examples in the stub together; do not claim judge reliability from six cases. No automated/LLM judge or validated inter-rater agreement is supplied.
+Use two independent English-proficient reviewers on every case; retain each initial annotation, source span, audio timestamp, label and rationale, then a separate adjudicated label. Resolve any disagreement with a recorded adjudicator; unresolved disagreement blocks. Names and calibration status are currently unassigned/unrun. Before scoring, review the illustrative failure examples in the stub together; do not claim judge reliability from six cases. No automated semantic/LLM judge or validated inter-rater agreement is supplied. The executable stub performs literal identity/sentinel and WAV-container checks only; it never substitutes these for M1–M6 or promotes unknown gates to PASS.
 
 ## Reproducible run manifest
 
